@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ff4e50, #fc913a);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: 80px;
+  color: black;
+  margin: 0;
+}
+
+.home-icon {
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  background: #999;
+  padding: 30px;
+}
+
+.profile-pic img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #999;
+}
+
+.info {
+  margin-left: 50px;
+}
+
+.info p {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+.name { color: red; font-weight: bold; }
+.age { color: purple; font-weight: bold; }
+.school { color: hotpink; font-weight: bold; }
+.insta { color: lightgreen; font-weight: bold; }
+.facebook { color: gold; font-weight: bold; }
+
+/* ✨ แอนิเมชันตัวอักษร */
+.animated-text {
+  display: inline-block;
+  animation: floatUp 3s ease-in-out forwards, moveSide 6s infinite ease-in-out alternate;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moveSide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(10px); }
+}
+/* รูปโปรไฟล์หมุน */
+.profile-pic img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #999;
+  animation: spin 20s linear infinite; /* หมุนเรื่อยๆ */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
