@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------------------
+   BOX IMAGES
+-------------------------- */
+.box {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.sports {
+  background: url("ko.jpg") no-repeat center center/cover;
+}
+.activity {
+  background: url("lo.jpg") no-repeat center center/cover;
+}
+.tourist {
+  background: url("re.jpg") no-repeat center center/cover;
+}
+.fashion {
+  background: url("sd.jpg") no-repeat center center/cover;
+}
+
+.box h2 {
+  position: absolute;
+  bottom: 20px;
+  color: red;
+  font-size: 40px;
+  font-family: "Impact", "Arial Black", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sports h2, .tourist h2 { left: 20px; }
+.activity h2, .fashion h2 { right: 20px; }
+
+/* --------------------------
+   LOGO CIRCLE
+-------------------------- */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+}
+
+.circle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: gold;
+  border: 20px solid transparent;
+  background-image: radial-gradient(circle, gold 70%, gold 70%),
+                    linear-gradient(45deg, red, navy);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+
+  /* หมุนช้าๆ */
+  animation: spin 20s linear infinite;
+}
+
+/* LOGO TEXT (Hinchooo) */
+.logo-text {
+  font-family: "Brush Script MT", cursive;
+  font-size: 42px;
+  font-weight: bold;
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  animation: moveText 5s ease-in-out infinite alternate;
+}
+
+/* HOCHIN (บนซ้าย) */
+.hoch {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 32px;
+  font-family: "Brush Script MT", cursive;
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+  animation: floatUpDown 4s ease-in-out infinite alternate;
+}
+
+/* BOX HEADINGS (SPORTS / ACTIVITY / TOURIST / FASHION) */
+.box h2 {
+  position: absolute;
+  bottom: 20px;
+  color: red;
+  font-size: 40px;
+  font-family: "Impact", "Arial Black", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounceText 3s ease-in-out infinite;
+}
+
+/* Keyframes สำหรับตัวอักษร */
+@keyframes moveText {
+  0%   { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+@keyframes floatUpDown {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-10px) scale(1.05); }
+}
+
+/* --------------------------
+   FLASH EFFECT
+-------------------------- */
+.flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.box:active .flash,
+.logo:active .flash {
+  animation: flashEffect 0.3s ease;
+}
+
+/* --------------------------
+   KEYFRAMES
+-------------------------- */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes moveText {
+  0%   { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+@keyframes flashEffect {
+  0% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
